@@ -48,10 +48,10 @@ include 'css.php';
         <a class="nav-link" href="#">Voltar <span class="sr-only"></span></a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <div class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search <i class="glyphicon glyphicon-search"></i></button>
-    </form>
+    </div>
   </div>
 </nav>
 
@@ -188,11 +188,10 @@ include 'css.php';
         </div>
       </center>
     </fieldset>
-  </form>
-
-  <div>
-    <button type="button" class="btn btn-dark" id="submitCad" onclick="Enviar()">Enviar</button>
+    <div>
+    <button type="submit" class="btn btn-dark" id="submitCad" onclick="Enviar()">Enviar</button>
   </div>
+  </form>
 </div>
 
 <script type="text/javascript">
@@ -236,7 +235,6 @@ include 'css.php';
     document.querySelector('#cpfCad').focus();
     return false;
   }
-
   }
 </script>
 </body>
