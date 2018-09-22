@@ -196,7 +196,6 @@ include 'css.php';
 </div>
 
 <script type="text/javascript">
-   let strCPF = document.querySelector('#cpfCad').value;
 
   function VerificaCPF(strCPF) {
     let Soma;
@@ -222,13 +221,17 @@ include 'css.php';
   //setTimeout(() => alert(VerificaCPF(strCPF)), 6000) // alert(VerificaCPF(strCPF))
   function Enviar(){
 
+    let strCPF = document.querySelector('#cpfCad').value;
+
+    strCPF = VerificaCPF(strCPF);
+
     if(document.querySelector('#nameCad').value == ''){
     alert('Preencha o campo Nome');
     document.querySelector('#nameCad').focus();
     return false;
   }
 
-    if(VerificaCPF(strCPF) == false){
+    if(strCPF == false){
     alert('O CPF não é válido');
     document.querySelector('#cpfCad').focus();
     return false;
