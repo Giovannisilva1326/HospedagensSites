@@ -14,7 +14,7 @@ include 'css.php';
 	<meta charset="utf-8">
 
 </head>
-<body>
+<body class="form-control">
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
