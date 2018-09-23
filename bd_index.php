@@ -11,7 +11,8 @@
 		private $senha = 'Mgf@1@12@@1';
 
 		//banco de dados
-		private $database = 'aeronautica';
+		private $database = 'HospedagensSites';
+
 	
 
 		public function conecta_mysql(){
