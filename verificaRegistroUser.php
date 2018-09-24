@@ -21,9 +21,9 @@ $email_existe = false;
 
 	//verifica se usuario ja existe
 $sql = "select * from tb_usuarios where ds_usuario = '$ds_usuario'";
-if($resultado_id = mysqli_query($link, $sql)){
+if($resultado_id = mssqli_query($link, $sql)){
 
-	$dados_usuario = mysqli_fetch_array($resultado_id);
+	$dados_usuario = mssqli_fetch_array($resultado_id);
 	if(isset($dados_usuario['ds_usuario'])){
 		$usuario_existe = true;
 	}
@@ -35,9 +35,9 @@ if($resultado_id = mysqli_query($link, $sql)){
 	//verifica se o e-mail ja existe
 
 $sql = "select * from tb_usuarios where ds_email = '$ds_email'";
-if($resultado_id = mysqli_query($link, $sql)){
+if($resultado_id = mssqli_query($link, $sql)){
 
-	$dados_usuario = mysqli_fetch_array($resultado_id);
+	$dados_usuario = mssqli_fetch_array($resultado_id);
 	if(isset($dados_usuario['ds_email'])){
 		$email_existe = true;
 	}
@@ -69,7 +69,7 @@ $sql = "procVerificaCadastro @opcao  = 'inscrever-se', @ds_nome = '".$ds_nome."'
 
 echo $sql;
 	//executar a query
-if(mysqli_query($link, $sql)){
+if(mssqli_query($link, $sql)){
 	echo 'Uśuário registrado com sucesso';
 }else{
 	echo 'Erro ao registrar usuário';
