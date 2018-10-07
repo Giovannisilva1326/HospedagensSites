@@ -21,6 +21,7 @@ $link = $objBd->conecta_mysql();
 $usuario_existe = false;
 $email_existe = false;
 $cpf_existe = false;
+$registrado = true;
 
 //echo $ds_senha;
 //echo $ds_Confirmsenha;
@@ -108,7 +109,14 @@ $sql = "insert into tb_usuarios (ds_nome, ds_sobrenome, ds_cpf, ds_endereco, cd_
 //echo $sql;
 	//executar a query
 if(mysqli_query($link, $sql)){
-	header('Location: index.php');
+
+	$registroOk = '';
+
+	if ($registrado) {
+		$registroOk.= "registroOk=1&";
+	}
+
+	header('Location: singIn.php?'.$registroOk);
 }else{
 	echo 'Erro ao registrar usuário';
 }
