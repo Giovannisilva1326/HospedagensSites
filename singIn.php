@@ -1,5 +1,6 @@
 <?
 $registroOk   = isset($_GET['registroOk'])  ? $_GET['registroOk']   : 0;
+$modalErro   = isset($_GET['modalErro'])  ? $_GET['modalErro']   : 0;
 include 'bd_index.php';
 include 'bootstrap.php'
 
@@ -93,30 +94,37 @@ include 'bootstrap.php'
   }
   ?>
 
-  <div class='modal' id='modalAcesso' tabindex='-1' role='dialog'>
-    <div class='modal-dialog' role='document'>
-      <div class='modal-content'>
-        <div class='modal-header'>
-          <h5 class='modal-title'>Acesso</h5>
-          <button type='button' class='closeAcess' data-dismiss='modal' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span>
-          </button>
-        </div>
-        <div class='modal-body'>
-          <div class='row'>
-            <div class='col-2'>
-              <label>Usuário:</label>
-            </div>
-            <div class='col-6'><input type='text' name='userAcess' id='userAcess' class='form-control'></div>
+  <form method="post" action="logar.php" id="formLogar">
+
+    <div class='modal' id='modalAcesso' tabindex='-1' role='dialog'>
+      <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h5 class='modal-title'>Acesso</h5>
+            <button type="button" class="closeAcess" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class='row'>
-            <div class='col-2'>
-              <label>Senha:</label>
+          <div class='modal-body'>
+            <div class='row'>
+              <div class='col-2'>
+                <label>Usuário:</label>
+              </div>
+              <div class='col-6'><input type='text' name='userAcess' id='userAcess' class='form-control'></div>
             </div>
-            <div class='col-6'><input type='password' name='passAcess' id='passAcess' class='form-control'></div>
+            <div class='row'>
+              <div class='col-2'>
+                <label>Senha:</label>
+              </div>
+              <div class='col-6'><input type='password' name='passAcess' id='passAcess' class='form-control'></div>
+            </div>
           </div>
-        </div>
-        <div class='modal-footer'>
+          <center>
+            <?if ($modalErro) {
+              echo '<font style="color: #FF0000">Usuário ou senha incorreto</font>';
+           }?>
+         </center>
+         <div class='modal-footer'>
           <button type='button' class='btn btn-secondary closebtnAcess' data-dismiss='modal'>Close</button>
           <button type='button' class='btn btn-primary acessobtnAcess'>Acessar</button>
         </div>
@@ -126,17 +134,23 @@ include 'bootstrap.php'
 
 </div>
 
+</form>
+
 <script type="text/javascript">
-  
+
   $(".closeAcess").click(() => {
     $("#modalAcesso").hide();
   });
 
-  
+
   $(".closebtnAcess").click(() => {
     $("#modalAcesso").hide();
   });
-  
+
+  $(".acessobtnAcess").click(() => {
+    $("#formLogar").submit();
+  });
+
 </script>
 
 <?if ($registroOk == false){?>
