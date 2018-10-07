@@ -21,11 +21,15 @@ $email_existe = false;
 
 	//verifica se usuario ja existe
 $sql = "select * from tb_usuarios where ds_usuario = '$ds_usuario'";
-if($resultado_id = mssqli_query($link, $sql)){
+//echo $sql;
+//echo $link;
+if($resultado_id = mysqli_query($link, $sql)){
 
-	$dados_usuario = mssqli_fetch_array($resultado_id);
+	$dados_usuario = mysqli_fetch_array($resultado_id);
 	if(isset($dados_usuario['ds_usuario'])){
 		$usuario_existe = true;
+
+	//echo $dados_usuario;
 	}
 
 }else{
@@ -35,9 +39,9 @@ if($resultado_id = mssqli_query($link, $sql)){
 	//verifica se o e-mail ja existe
 
 $sql = "select * from tb_usuarios where ds_email = '$ds_email'";
-if($resultado_id = mssqli_query($link, $sql)){
+if($resultado_id = mysqli_query($link, $sql)){
 
-	$dados_usuario = mssqli_fetch_array($resultado_id);
+	$dados_usuario = mysqli_fetch_array($resultado_id);
 	if(isset($dados_usuario['ds_email'])){
 		$email_existe = true;
 	}
@@ -65,11 +69,11 @@ if($usuario_existe || $email_existe){
 }
 
 
-$sql = "procVerificaCadastro @opcao  = 'inscrever-se', @ds_nome = '".$ds_nome."', @ds_sobrenome = '".$ds_sobrenome."', @ds_cpf =" .$ds_cpf. ", @ds_endereco = '".$ds_endereco."', @cd_DDD = '".$cd_DDD."', @cd_telefone = '".$cd_telefone."', @ds_usuario = '".$ds_usuario."', @ds_senha = '".$ds_senha."', @ds_lembrete_senha = '".$ds_lembrete_senha."', @ds_email = '".$ds_email."' " ;
+$sql = "insert into tb_usuarios (ds_nome, ds_sobrenome, ds_cpf, ds_endereco, cd_DDD, cd_telefone, ds_usuario, ds_senha, ds_lembrete, ds_email, cd_status, dt_operacao)  values ('$ds_nome', '$ds_sobrenome' , '$ds_cpf' , '$ds_endereco','$cd_DDD','$cd_telefone','$ds_usuario','$ds_senha','$ds_lembrete_senha','$ds_email', '15', now())";
 
 echo $sql;
 	//executar a query
-if(mssqli_query($link, $sql)){
+if(mysqli_query($link, $sql)){
 	echo 'Uśuário registrado com sucesso';
 }else{
 	echo 'Erro ao registrar usuário';
