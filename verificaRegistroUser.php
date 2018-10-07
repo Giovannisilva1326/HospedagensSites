@@ -1,10 +1,12 @@
 <?
 
 include 'bd_index.php';
+include 'bootstrap.php';
 
 $ds_usuario = $_POST['userCad'];
 $ds_email = $_POST['emailCad'];
 $ds_senha = ($_POST['passCad']);
+$ds_Confirmsenha = ($_POST['passCadConf']);
 $ds_nome = ($_POST['nameCad']);
 $ds_sobrenome = ($_POST['sobrenomeCad']);
 $ds_cpf = ($_POST['cpfCad']);
@@ -20,6 +22,9 @@ $usuario_existe = false;
 $email_existe = false;
 $cpf_existe = false;
 
+//echo $ds_senha;
+//echo $ds_Confirmsenha;
+//die();
 	//verifica se usuario ja existe
 $sql = "select * from tb_usuarios where ds_usuario = '$ds_usuario'";
 //echo $sql;
@@ -65,6 +70,16 @@ if($resultado_id = mysqli_query($link, $sql)){
 	echo 'Erro ao tentar localizar';
 }
 
+if ($ds_senha != $ds_Confirmsenha || $ds_Confirmsenha != $ds_senha) {
+	
+	$retorno_get = '';
+
+	$retorno_get="erro_senha=1&";
+
+	header('Location: inscreverse.php?'.$retorno_get);
+	die();
+
+}
 if($usuario_existe || $email_existe || $cpf_existe){
 
 
@@ -78,7 +93,7 @@ if($usuario_existe || $email_existe || $cpf_existe){
 		$retorno_get.= "erro_email=1&";
 	}
 
-	if($usuario_existe){
+	if($cpf_existe){
 		$retorno_get.= "erro_cpf=1&";
 	}
 
@@ -90,10 +105,10 @@ if($usuario_existe || $email_existe || $cpf_existe){
 
 $sql = "insert into tb_usuarios (ds_nome, ds_sobrenome, ds_cpf, ds_endereco, cd_DDD, cd_telefone, ds_usuario, ds_senha, ds_lembrete, ds_email, cd_status, dt_operacao)  values ('$ds_nome', '$ds_sobrenome' , '$ds_cpf' , '$ds_endereco','$cd_DDD','$cd_telefone','$ds_usuario','$ds_senha','$ds_lembrete_senha','$ds_email', '15', now())";
 
-echo $sql;
+//echo $sql;
 	//executar a query
 if(mysqli_query($link, $sql)){
-	echo 'Uśuário registrado com sucesso';
+	header('Location: index.php');
 }else{
 	echo 'Erro ao registrar usuário';
 }

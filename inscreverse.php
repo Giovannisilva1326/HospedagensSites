@@ -2,6 +2,7 @@
 $erro_usuario   = isset($_GET['erro_usuario'])  ? $_GET['erro_usuario'] : 0;
 $erro_email   = isset($_GET['erro_email'])  ? $_GET['erro_email']   : 0;
 $erro_cpf   = isset($_GET['erro_cpf'])  ? $_GET['erro_cpf']   : 0;
+$erro_senha   = isset($_GET['erro_senha'])  ? $_GET['erro_senha']   : 0;
 
 include 'bootstrap.php';
 include 'css.php';
@@ -27,11 +28,11 @@ include 'css.php';
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="#">Sing up <span class="sr-only">(current)</span></a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="#">Sing in <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
@@ -152,6 +153,11 @@ include 'css.php';
           </div>
           <div class="col-3">
             <input type="password" name="passCad" id="passCad" class="form-control" placeholder="Senha">
+            <?
+            if($erro_senha){
+              echo '<font style="color: #FF0000">Senhas divergente</font>';
+            }
+            ?>
           </div>
         </div>
 
@@ -163,6 +169,11 @@ include 'css.php';
           </div>
           <div class="col-3">
             <input type="password" name="passCadConf" id="passCadConf" class="form-control" placeholder="Confirmar Senha">
+            <?
+            if($erro_senha){
+              echo '<font style="color: #FF0000">Senhas divergente</font>';
+            }
+            ?>
           </div>
         </div>
 
