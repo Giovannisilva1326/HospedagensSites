@@ -1,6 +1,6 @@
 create table tb_usuarios(
 
-    cd_usaurio int PRIMARY KEY,
+    cd_usaurio int PRIMARY KEY AUTO_INCREMENT,
     ds_nome varchar(100),
     ds_sobrenome varchar(100),
     ds_cpf varchar(11),
