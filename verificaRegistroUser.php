@@ -18,6 +18,7 @@ $link = $objBd->conecta_mysql();
 
 $usuario_existe = false;
 $email_existe = false;
+$cpf_existe = false;
 
 	//verifica se usuario ja existe
 $sql = "select * from tb_usuarios where ds_usuario = '$ds_usuario'";
@@ -50,7 +51,21 @@ if($resultado_id = mysqli_query($link, $sql)){
 	echo 'Erro ao tentar localizar';
 }
 
-if($usuario_existe || $email_existe){
+	//verifica se o cpf ja existe
+
+$sql = "select * from tb_usuarios where ds_email = '$ds_cpf'";
+if($resultado_id = mysqli_query($link, $sql)){
+
+	$dados_usuario = mysqli_fetch_array($resultado_id);
+	if(isset($cpf['ds_cpf'])){
+		$cpf_existe = true;
+	}
+
+}else{
+	echo 'Erro ao tentar localizar';
+}
+
+if($usuario_existe || $email_existe || $cpf_existe){
 
 
 	$retorno_get = '';
@@ -63,8 +78,12 @@ if($usuario_existe || $email_existe){
 		$retorno_get.= "erro_email=1&";
 	}
 
+	if($usuario_existe){
+		$retorno_get.= "erro_cpf=1&";
+	}
+
 	
-	header('Location: inscrevase.php?'.$retorno_get);
+	header('Location: inscreverse.php?'.$retorno_get);
 	die();
 }
 

@@ -1,6 +1,7 @@
 <?
 $erro_usuario   = isset($_GET['erro_usuario'])  ? $_GET['erro_usuario'] : 0;
 $erro_email   = isset($_GET['erro_email'])  ? $_GET['erro_email']   : 0;
+$erro_cpf   = isset($_GET['erro_cpf'])  ? $_GET['erro_cpf']   : 0;
 
 include 'bootstrap.php';
 include 'css.php';
@@ -94,6 +95,11 @@ include 'css.php';
           </div>
           <div class="col-3">
             <input type="cpf" name="cpfCad" id="cpfCad" class="form-control" placeholder="CPF">
+            <?
+            if($erro_cpf){
+              echo '<font style="color: #FF0000">CPF já existe</font>';
+            }
+            ?>
           </div>
         </div>
 
