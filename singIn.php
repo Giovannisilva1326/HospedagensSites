@@ -136,23 +136,6 @@ include 'bootstrap.php'
 
 </form>
 
-<script type="text/javascript">
-
-  $(".closeAcess").click(() => {
-    $("#modalAcesso").hide();
-  });
-
-
-  $(".closebtnAcess").click(() => {
-    $("#modalAcesso").hide();
-  });
-
-  $(".acessobtnAcess").click(() => {
-    $("#formLogar").submit();
-  });
-
-</script>
-
 <?if ($registroOk == false){?>
   <script type="text/javascript" src="javascript.js"></script>
   <?
