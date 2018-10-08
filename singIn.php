@@ -24,7 +24,7 @@ include 'bootstrap.php'
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-      <a class="nav-link" href="#">Entrar <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="singIn.php">Entrar <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="inscreverse.php">Cadastrar</a>
@@ -42,8 +42,8 @@ include 'bootstrap.php'
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Pesquise" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Pesquise</button>
     </form>
   </div>
 </nav>
