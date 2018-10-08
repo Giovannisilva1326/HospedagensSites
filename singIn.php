@@ -8,12 +8,12 @@ include 'bootstrap.php'
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<meta charset="utf-8">
+  <title></title>
+  <meta charset="utf-8">
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
      <img src="./imagens/cerebro.png" width="100" height="50">
    </a>
@@ -48,99 +48,52 @@ include 'bootstrap.php'
   </div>
 </nav>
 
-<div id="modals">
-  <?
-  if ($registroOk) {
-    ?>
 
-    <div class="modal" id="modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Usuário registrado com sucesso</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p>Para acessar clique em acesso ou feche a aba e vá até o meu de acesso e logue - se.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary closebtn" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary acessobtn">Acessar</button>
+<form method="post" action="logar.php" id="formLogar">
+
+  <div class='modal' id='modalAcesso' tabindex='-1' role='dialog'>
+    <div class='modal-dialog' role='document'>
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <h5 class='modal-title'> <?
+            if ($registroOk) {
+              ?> Usuario Registrado com sucesso, Acesse <?}else{?>Acesso<?}?></h5>
+              <button type="button" class="closeAcess" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class='modal-body'>
+              <div class='row'>
+                <div class='col-2'>
+                  <label>Usuário:</label>
+                </div>
+                <div class='col-6'><input type='text' name='userAcess' id='userAcess' class='form-control'></div>
+              </div>
+              <div class='row'>
+                <div class='col-2'>
+                  <label>Senha:</label>
+                </div>
+                <div class='col-6'><input type='password' name='passAcess' id='passAcess' class='form-control'></div>
+              </div>
+            </div>
+            <center>
+              <?if ($modalErro) {
+                echo '<font style="color: #FF0000">Usuário ou senha incorreto</font>';
+              }?>
+            </center>
+            <div class='modal-footer'>
+              <button type='button' class='btn btn-secondary closebtnAcess' data-dismiss='modal'>Close</button>
+              <button type='button' class='btn btn-primary acessobtnAcess'>Acessar</button>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
 
-    <script type="text/javascript">
-      $("#modal").show();
-      $("#modalAcesso").hide();
+  </form>
 
-      $(".close").click(() => {
-        $("#modal").hide()
-      });
-      $(".closebtn").click(() => {
-        $("#modal").hide()
-      });
 
-      $(".acessobtn").click(() =>{
-        $("#modal").hide();
-        $("#modalAcesso").show();
-      })
-    </script>
-
-    <?
-  }
-  ?>
-
-  <form method="post" action="logar.php" id="formLogar">
-
-    <div class='modal' id='modalAcesso' tabindex='-1' role='dialog'>
-      <div class='modal-dialog' role='document'>
-        <div class='modal-content'>
-          <div class='modal-header'>
-            <h5 class='modal-title'>Acesso</h5>
-            <button type="button" class="closeAcess" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class='modal-body'>
-            <div class='row'>
-              <div class='col-2'>
-                <label>Usuário:</label>
-              </div>
-              <div class='col-6'><input type='text' name='userAcess' id='userAcess' class='form-control'></div>
-            </div>
-            <div class='row'>
-              <div class='col-2'>
-                <label>Senha:</label>
-              </div>
-              <div class='col-6'><input type='password' name='passAcess' id='passAcess' class='form-control'></div>
-            </div>
-          </div>
-          <center>
-            <?if ($modalErro) {
-              echo '<font style="color: #FF0000">Usuário ou senha incorreto</font>';
-           }?>
-         </center>
-         <div class='modal-footer'>
-          <button type='button' class='btn btn-secondary closebtnAcess' data-dismiss='modal'>Close</button>
-          <button type='button' class='btn btn-primary acessobtnAcess'>Acessar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-</form>
-
-<?if ($registroOk == false){?>
   <script type="text/javascript" src="javascript.js"></script>
-  <?
-}
-?>
-
 </body>
 </html>
