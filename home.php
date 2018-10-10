@@ -46,7 +46,6 @@ include 'bootstrap.php'
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">História</a>
-            <a class="dropdown-item" href="#">História</a>
             <a class="dropdown-item" href="#">Desenvolvimentos</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Jogos</a>
@@ -118,7 +117,7 @@ include 'bootstrap.php'
       <div class="card">
         <img class="card-img-top" src="imagens/cerebro.png" alt="">
         <div class="card-body">
-          <h4 class="card-title">Pica das galáxias</h4>
+          <h4 class="card-title">Melhor dos melhores</h4>
           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
         </div>
         <div class="card-footer">
