@@ -58,7 +58,7 @@ include 'bootstrap.php'
           <h5 class='modal-title'> <?
             if ($registroOk) {
               ?> Usuario Registrado com sucesso, Acesse <?}else{?>Acesso<?}?></h5>
-              <button type="button" class="closeAcess" data-dismiss="modal" aria-label="Close">
+              <!--<button type="button" class="closeAcess" data-dismiss="modal" aria-label="Close">-->
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>

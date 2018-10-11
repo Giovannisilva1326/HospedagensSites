@@ -242,9 +242,39 @@ include 'css.php';
 
     strCPF = VerificaCPF(strCPF);
 
+    if(document.querySelector('#emailCad','#numberCad','#DDDCad','#enderecoCad','#sobrenomeCad','#nameCad','#cpfCad').value == ''){
+      alert('Nenhum campo preenchido');
+      document.querySelector('#emailCad','#numberCad','#DDDCad','#enderecoCad','#sobrenomeCad','#nameCad','#cpfCad').focus();
+      return false;
+    }
     if(document.querySelector('#nameCad').value == ''){
       alert('Preencha o campo Nome');
       document.querySelector('#nameCad').focus();
+      return false;
+    }
+    if(document.querySelector('#sobrenomeCad').value == ''){
+      alert('Preencha o campo Sobrenome');
+      document.querySelector('#sobrenomeCad').focus();
+      return false;
+    }
+    if(document.querySelector('#enderecoCad').value == ''){
+      alert('Preencha o campo Endereço');
+      document.querySelector('#enderecoCad').focus();
+      return false;
+    }
+    if(document.querySelector('#DDDCad').value == ''){
+      alert('Preencha o campo DDD');
+      document.querySelector('#DDDCad').focus();
+      return false;
+    }
+    if(document.querySelector('#numberCad').value == ''){
+      alert('Preencha o campo Telefone');
+      document.querySelector('#numberCad').focus();
+      return false;
+    }
+    if(document.querySelector('#emailCad').value == ''){
+      alert('Preencha o campo Email');
+      document.querySelector('#emailCad').focus();
       return false;
     }
 

@@ -49,8 +49,8 @@ include 'bootstrap.php'
             <a class="dropdown-item" href="#">Desenvolvimentos</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Jogos</a>
-            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="contato.php">Contato</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="index.php">Sair</a>
           </div>
         </li>
