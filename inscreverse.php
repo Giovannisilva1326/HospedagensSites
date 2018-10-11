@@ -282,8 +282,13 @@ include 'css.php';
       document.querySelector('#passCad').focus();
       return false;
     }
-    if(document.querySelector('#passCadConf').value != document.querySelector('#passCad').value){
+    if(document.querySelector('#passCadConf').value == ''){
       alert('Preencha o campo Confirmação de senha');
+      document.querySelector('#passCadConf').focus();
+      return false;
+    }
+    if(document.querySelector('#passCadConf').value != document.querySelector('#passCad').value){
+      alert('As senhas não coincidem');
       document.querySelector('#passCadConf').focus();
       return false;
     }
