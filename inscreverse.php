@@ -242,6 +242,11 @@ include 'css.php';
 
     strCPF = VerificaCPF(strCPF);
 
+    if(strCPF == false){
+      alert('O CPF não é válido');
+      document.querySelector('#cpfCad').focus();
+      return false;
+    }
     if(document.querySelector('#nameCad').value == ''){
       alert('Preencha o campo Nome');
       document.querySelector('#nameCad').focus();
@@ -270,12 +275,6 @@ include 'css.php';
     if(document.querySelector('#emailCad').value == ''){
       alert('Preencha o campo Email');
       document.querySelector('#emailCad').focus();
-      return false;
-    }
-
-    if(strCPF == false){
-      alert('O CPF não é válido');
-      document.querySelector('#cpfCad').focus();
       return false;
     }
     document.querySelector('#formCadUser').submit()
