@@ -3,4 +3,7 @@
 	#center{
 		padding-left: 100px
 	}
+	.password{
+		padding-top: 5px
+	}
 </style>

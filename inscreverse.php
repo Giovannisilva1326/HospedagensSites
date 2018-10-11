@@ -272,6 +272,21 @@ include 'css.php';
       document.querySelector('#numberCad').focus();
       return false;
     }
+    if(document.querySelector('#userCad').value == ''){
+      alert('Preencha o campo Usuário');
+      document.querySelector('#userCad').focus();
+      return false;
+    }
+    if(document.querySelector('#passCad').value == ''){
+      alert('Preencha o campo Senha');
+      document.querySelector('#passCad').focus();
+      return false;
+    }
+    if(document.querySelector('#passCadConf').value != document.querySelector('#passCad').value){
+      alert('Preencha o campo Confirmação de senha');
+      document.querySelector('#passCadConf').focus();
+      return false;
+    }
     if(document.querySelector('#emailCad').value == ''){
       alert('Preencha o campo Email');
       document.querySelector('#emailCad').focus();

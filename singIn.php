@@ -2,7 +2,8 @@
 $registroOk   = isset($_GET['registroOk'])  ? $_GET['registroOk']   : 0;
 $modalErro   = isset($_GET['modalErro'])  ? $_GET['modalErro']   : 0;
 include 'bd_index.php';
-include 'bootstrap.php'
+include 'bootstrap.php';
+include 'css.php';
 
 ?>
 <!DOCTYPE html>
@@ -58,9 +59,7 @@ include 'bootstrap.php'
           <h5 class='modal-title'> <?
             if ($registroOk) {
               ?> Usuario Registrado com sucesso, Acesse <?}else{?>Acesso<?}?></h5>
-              <!--<button type="button" class="closeAcess" data-dismiss="modal" aria-label="Close">-->
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <span aria-hidden="true" class="closeAcess">&times;</span>
             </div>
             <div class='modal-body'>
               <div class='row'>
@@ -69,7 +68,7 @@ include 'bootstrap.php'
                 </div>
                 <div class='col-6'><input type='text' name='userAcess' id='userAcess' class='form-control'></div>
               </div>
-              <div class='row'>
+              <div class='row password'>
                 <div class='col-2'>
                   <label>Senha:</label>
                 </div>
