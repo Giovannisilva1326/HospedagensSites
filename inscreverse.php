@@ -242,11 +242,6 @@ include 'css.php';
 
     strCPF = VerificaCPF(strCPF);
 
-    if(document.querySelector('#emailCad','#numberCad','#DDDCad','#enderecoCad','#sobrenomeCad','#nameCad','#cpfCad').value == ''){
-      alert('Nenhum campo preenchido');
-      document.querySelector('#emailCad','#numberCad','#DDDCad','#enderecoCad','#sobrenomeCad','#nameCad','#cpfCad').focus();
-      return false;
-    }
     if(document.querySelector('#nameCad').value == ''){
       alert('Preencha o campo Nome');
       document.querySelector('#nameCad').focus();
