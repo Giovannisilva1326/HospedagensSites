@@ -18,55 +18,52 @@ create table tb_usuarios(
 
 
 
-create procedure procVerificaCadastro
+delimiter $$
+create procedure procVerificaCadastro ( 
+   in ds_nome varchar(100), 
+   in ds_sobrenome varchar(100), 
+   in ds_cpf varchar(11), 
+   in ds_endereco varchar(200), 
+   in cd_DDD int, in cd_telefone int, 
+   in ds_usuario varchar(100), 
+   in ds_senha varchar(100), 
+   in ds_lembrete varchar(100), 
+   in ds_email varchar(200), 
+   in opcao varchar(100) 
+) 
 
-(
-@ds_nome varchar(100) = null,
-@ds_sobrenome varchar(100) = null,
-@ds_cpf varchar(11) = null,
-@ds_endereco varchar(200) = null,
-@cd_DDD int = null,
-@cd_telefone int = null
-@ds_usuario varchar(100) = null,
-@ds_senha varchar(100) = null,
-@ds_lembrete varchar(100) = null,
-@ds_email varchar(200) = null,
-@opcao varchar(100) = null
-)
 
-as 
+begin 
 
 if opcao = 'insert'
-begin
-
-insert into tb_usuario (
-    ds_nome,
-    ds_sobrenome,
-    ds_cpf,
-    ds_endereco,
-    cd_DDD,
-    cd_telefone,
-    ds_usuario,
-    ds_senha,
-    ds_lembrete,
-    ds_email,
-    cd_status,
-    dt_operacao
-)
-
-values
-(   
-    @ds_nome
-    @ds_sobrenome
-    @ds_cpf
-    @ds_endereco
-    @cd_DDD
-    @cd_telefone
-    @ds_usuario
-    @ds_senha
-    @ds_lembrete
-    @ds_email
-     15,
-    datetime
-)
-end
+then
+insert into tb_usuario ( 
+   ds_nome, 
+   ds_sobrenome, 
+   ds_cpf, 
+   ds_endereco, 
+   cd_DDD, 
+   cd_telefone, 
+   ds_usuario, 
+   ds_senha, 
+   ds_lembrete, 
+   ds_email, 
+   cd_status, 
+   dt_operacao 
+) values 
+(
+   ds_nome,
+   ds_sobrenome,
+   ds_cpf,
+   ds_endereco,
+   cd_DDD,
+   cd_telefone,
+   ds_usuario,
+   ds_senha,
+   ds_lembrete,
+   ds_email,
+   15,
+   datetime
+);
+end if;
+end $$
